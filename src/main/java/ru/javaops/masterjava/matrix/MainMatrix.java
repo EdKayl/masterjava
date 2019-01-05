@@ -10,7 +10,7 @@ import java.util.concurrent.Executors;
  */
 public class MainMatrix {
     private static final int MATRIX_SIZE = 1000;
-    private static final int THREAD_NUMBER = 10;
+    private static final int THREAD_NUMBER = 5;
 
     private final static ExecutorService executor = Executors.newFixedThreadPool(MainMatrix.THREAD_NUMBER);
 
@@ -35,6 +35,17 @@ public class MainMatrix {
             out("Concurrent thread time, sec: %.3f", duration);
             concurrentThreadSum += duration;
 
+/*
+            //
+            System.out.println("matrix A");
+            printMatrix(matrixA);
+            System.out.println("matrix B");
+            printMatrix(matrixB);
+            System.out.println("matrix C");
+            printMatrix(concurrentMatrixC);
+*/
+
+            //
             if (!MatrixUtil.compare(matrixC, concurrentMatrixC)) {
                 System.err.println("Comparison failed");
                 break;
@@ -46,6 +57,14 @@ public class MainMatrix {
         out("Average concurrent thread time, sec: %.3f", concurrentThreadSum / 5.);
     }
 
+    private static void printMatrix(int[][] matrix) {
+        for(int row = 0; row < MATRIX_SIZE; row++) {
+            for(int col = 0; col < MATRIX_SIZE; col++) {
+                System.out.print(matrix[row][col] + " ");
+            }
+            System.out.println();
+        }
+    }
     private static void out(String format, double ms) {
         System.out.println(String.format(format, ms));
     }
