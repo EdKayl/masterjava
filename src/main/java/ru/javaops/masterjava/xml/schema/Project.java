@@ -9,9 +9,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementRef;
-import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -25,7 +23,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="fullName" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="Groups">
  *           &lt;complexType>
  *             &lt;complexContent>
@@ -38,9 +35,8 @@ import javax.xml.bind.annotation.XmlType;
  *           &lt;/complexType>
  *         &lt;/element>
  *       &lt;/sequence>
- *       &lt;attribute name="email" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="flag" use="required" type="{http://javaops.ru}flagType" />
- *       &lt;attribute name="city" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
+ *       &lt;attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="description" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -50,58 +46,27 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "fullName",
     "groups"
 })
-@XmlRootElement(name = "User", namespace = "http://javaops.ru")
-public class User {
+@XmlRootElement(name = "Project", namespace = "http://javaops.ru")
+public class Project {
 
-    @XmlElement(namespace = "http://javaops.ru", required = true)
-    protected String fullName;
     @XmlElement(name = "Groups", namespace = "http://javaops.ru", required = true)
-    protected User.Groups groups;
-    @XmlAttribute(name = "email", required = true)
-    protected String email;
-    @XmlAttribute(name = "flag", required = true)
-    protected FlagType flag;
-    @XmlAttribute(name = "city", required = true)
-    @XmlIDREF
-    @XmlSchemaType(name = "IDREF")
-    protected Object city;
-
-    /**
-     * Gets the value of the fullName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getFullName() {
-        return fullName;
-    }
-
-    /**
-     * Sets the value of the fullName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setFullName(String value) {
-        this.fullName = value;
-    }
+    protected Project.Groups groups;
+    @XmlAttribute(name = "name", required = true)
+    protected String name;
+    @XmlAttribute(name = "description", required = true)
+    protected String description;
 
     /**
      * Gets the value of the groups property.
      * 
      * @return
      *     possible object is
-     *     {@link User.Groups }
+     *     {@link Project.Groups }
      *     
      */
-    public User.Groups getGroups() {
+    public Project.Groups getGroups() {
         return groups;
     }
 
@@ -110,83 +75,59 @@ public class User {
      * 
      * @param value
      *     allowed object is
-     *     {@link User.Groups }
+     *     {@link Project.Groups }
      *     
      */
-    public void setGroups(User.Groups value) {
+    public void setGroups(Project.Groups value) {
         this.groups = value;
     }
 
     /**
-     * Gets the value of the email property.
+     * Gets the value of the name property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getEmail() {
-        return email;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Sets the value of the email property.
+     * Sets the value of the name property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setEmail(String value) {
-        this.email = value;
+    public void setName(String value) {
+        this.name = value;
     }
 
     /**
-     * Gets the value of the flag property.
+     * Gets the value of the description property.
      * 
      * @return
      *     possible object is
-     *     {@link FlagType }
+     *     {@link String }
      *     
      */
-    public FlagType getFlag() {
-        return flag;
+    public String getDescription() {
+        return description;
     }
 
     /**
-     * Sets the value of the flag property.
+     * Sets the value of the description property.
      * 
      * @param value
      *     allowed object is
-     *     {@link FlagType }
+     *     {@link String }
      *     
      */
-    public void setFlag(FlagType value) {
-        this.flag = value;
-    }
-
-    /**
-     * Gets the value of the city property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     
-     */
-    public Object getCity() {
-        return city;
-    }
-
-    /**
-     * Sets the value of the city property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
-     */
-    public void setCity(Object value) {
-        this.city = value;
+    public void setDescription(String value) {
+        this.description = value;
     }
 
 

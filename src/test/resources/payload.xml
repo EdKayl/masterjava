@@ -1,23 +1,77 @@
 <Payload xmlns="http://javaops.ru"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://javaops.ru payload.xsd">
+    <Projects>
+        <Project name="Topjava" description="Learn Spring">
+            <Groups>
+                <group>top01</group>
+                <group>top02</group>
+                <group>top15</group>
+                <group>top16</group>
+            </Groups>
+        </Project>
+        <Project name="Masterjava" description="Learn microservice">
+            <Groups>
+                <group>mas01</group>
+                <group>mas06</group>
+            </Groups>
+        </Project>
+    </Projects>
+
     <Users>
-        <User flag="active" city="kiv">
-            <email>gmail@gmail.com</email>
+        <User flag="active" city="kiv" email="gmail@gmail.com">
             <fullName>Full Name</fullName>
+            <Groups>
+                <group>top01</group>
+                <group>top15</group>
+            </Groups>
         </User>
-        <User flag="superuser" city="spb">
-            <email>admin@javaops.ru</email>
+
+        <User flag="superuser" city="spb" email="admin@javaops.ru">
             <fullName>Admin</fullName>
+            <Groups>
+                <group>top01</group>
+                <group>top02</group>
+                <group>top15</group>
+                <group>top16</group>
+                <group>mas01</group>
+                <group>mas06</group>
+
+            </Groups>
         </User>
-        <User flag="deleted" city="spb">
-            <email>mail@yandex.ru</email>
+
+        <User flag="deleted" city="spb" email="mail@yandex.ru">
             <fullName>Deleted</fullName>
+            <Groups>
+                <group>top15</group>
+            </Groups>
         </User>
     </Users>
+
     <Cities>
         <City id="spb">Санкт-Петербург</City>
         <City id="kiv">Киев</City>
         <City id="mnsk">Минск</City>
     </Cities>
+
+    <Groups>
+        <Group id="top01" type="FINISHED">
+            <name>topjava01</name>
+        </Group>
+        <Group id="top02" type="FINISHED">
+            <name>topjava02</name>
+        </Group>
+        <Group id="mas01" type="FINISHED">
+            <name>masterjava01</name>
+        </Group>
+        <Group id="top15" type="CURRENT">
+            <name>topjava15</name>
+        </Group>
+        <Group id="mas06" type="CURRENT">
+            <name>masterjava06</name>
+        </Group>
+        <Group id="top16" type="REGISTERING">
+            <name>topjava16</name>
+        </Group>
+    </Groups>
 </Payload>
