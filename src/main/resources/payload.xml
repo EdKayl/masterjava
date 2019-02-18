@@ -1,3 +1,4 @@
+<?xml-stylesheet type="text/xsl" version="2.0" href="projectgroups.xsl"?>
 <Payload xmlns="http://javaops.ru"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://javaops.ru payload.xsd">

@@ -34,7 +34,6 @@ public class MainXml {
                 .collect(Collectors.toList());
 
         //find user that included in project groups
-
         List<User> projectUsers = payload.getUsers().getUser().stream()
                 .filter(user -> {
                     List<Group> userGroups = user.getGroups().getGroup().stream()
